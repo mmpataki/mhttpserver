@@ -1,0 +1,8 @@
+Notes for developement
+
+referred RFCs   7230....7238
+
+ **	A sender MUST NOT generate an "http" URI with an empty host
+	identifier.  A recipient that processes such a URI reference MUST
+	reject it as invalid.
+	
