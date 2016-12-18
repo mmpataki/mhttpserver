@@ -19,8 +19,14 @@
 #define mlog printf
 #define HTTP_VERSION 1.1
 
+struct system_t {
+	int pprint;
+	FILE *pout;
+};
+
 extern int threads_running;
 extern int SERVER_PORT;
+extern struct system_t system;
 
 /* Request Queue shared among two threads */
 extern struct g_queue rque;

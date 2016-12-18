@@ -3,6 +3,7 @@
 
 /* Request Queue shared among two threads */
 struct g_queue rque;
+struct system_t system;
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +11,15 @@ int main(int argc, char *argv[])
 	if(argc > 1) {
 		SERVER_PORT = atoi(argv[1]);
 	}
+
+	//scan arguments.
+	for(i=2; i<argc; i++) {
+		if(!strcmp(argv[i], "pout")) {
+			system.pprint = 1;
+			system.pout = stdout;
+		}
+	}
+
 
 	/* create thread for processing the requests */
 	tcreate(mserver, NULL);

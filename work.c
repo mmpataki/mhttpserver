@@ -166,6 +166,10 @@ accept_new_request:
 		goto shut_out;
 	}
 
+	if(system.ppacket) {
+		fwrite(wrk, len, system.pout);
+	}
+
 #define WORDN(x, size, n) ((x & (0xFF << n)) >> (size - (n * 8)))
 #define IP4BYTES(nip) WORDN(nip, 31, 0),WORDN(nip, 31, 1),WORDN(nip, 31, 2),WORDN(nip, 31, 3)
 
